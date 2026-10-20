@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUCKY ARCADE - Khu trò chơi chọn số ngẫu nhiên vui nhộn, công bằng cho lớp học, bốc thăm sự kiện và chia nhóm với 5 chế độ chơi sinh động.">
+  <title>LUCKY ARCADE 🎪 - Khu Trò Chơi Chọn Số Ngẫu Nhiên</title>
+
+  <!-- Google Fonts: Baloo 2 & Be Vietnam Pro -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Animate.css CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- AOS (Animate On Scroll) CSS CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HEADER & NAVIGATION
+       ========================================== -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="#hero" class="brand-logo" aria-label="Lucky Arcade Trang chủ">
+        <span class="brand-icon" aria-hidden="true">🎪</span>
+        <span class="brand-text">LUCKY ARCADE</span>
+      </a>
+      <nav class="site-nav" aria-label="Điều hướng chính">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#about" class="nav-link">Giới thiệu</a></li>
+          <li class="nav-item"><a href="#setup" class="nav-link">Thiết lập</a></li>
+          <li class="nav-item"><a href="#games" class="nav-link">Trò chơi</a></li>
+          <li class="nav-item"><a href="#history" class="nav-link">Lịch sử</a></li>
+          <li class="nav-item"><a href="#how-to" class="nav-link">Cách dùng</a></li>
+          <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Dải thông báo đèn Neon chạy chữ hội chợ thu hút người xem ngay khi mở trang -->
+  <aside class="arcade-marquee-ribbon" aria-label="Bảng tin tức khu trò chơi">
+    <div class="marquee-track">
+      <span class="marquee-content">
+        🎪 <strong>LUCKY ARCADE</strong>: Khu trò chơi bốc thăm & chọn số ngẫu nhiên hội chợ vui nhộn • 🦆 Đua Vịt Tốc Độ • 🎣 Hồ Câu May Mắn • 🎡 Vòng Quay Kì Diệu • 🎁 Hộp Quà Bí Ẩn • 🎲 Xúc Xắc 3D • 100% Công bằng & Minh bạch cho lớp học, bốc thăm sự kiện và chia nhóm! 🚀
+      </span>
+      <span class="marquee-content" aria-hidden="true">
+        🎪 <strong>LUCKY ARCADE</strong>: Khu trò chơi bốc thăm & chọn số ngẫu nhiên hội chợ vui nhộn • 🦆 Đua Vịt Tốc Độ • 🎣 Hồ Câu May Mắn • 🎡 Vòng Quay Kì Diệu • 🎁 Hộp Quà Bí Ẩn • 🎲 Xúc Xắc 3D • 100% Công bằng & Minh bạch cho lớp học, bốc thăm sự kiện và chia nhóm! 🚀
+      </span>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MAIN CONTENT (CHỈ CÓ DUY NHẤT 1 THẺ MAIN)
+       ========================================== -->
+  <main>
+
+    <!-- ==========================================
+         2. HERO SECTION (#hero)
+         ========================================== -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Huy hiệu phân loại nổi bật -->
+          <div class="hero-pill-badge animate__animated animate__fadeInDown">
+            <span class="pill-dot"></span>
+            <span>🎪 KHU TRÒ CHƠI BỐC THĂM SỐ HỘI CHỢ MIỄN PHÍ</span>
+          </div>
+
+          <h1 class="hero-title animate__animated animate__bounceInDown">Hôm nay, may mắn gọi tên ai?</h1>
+          <p class="hero-slogan animate__animated animate__fadeInUp animate__delay-1s">
+            Vòng quay rực rỡ, vịt đua thần tốc, cá cắn câu bất ngờ! Công cụ bốc thăm số ngẫu nhiên công bằng, hào hứng và hoàn toàn miễn phí cho mọi lớp học và sự kiện.
+          </p>
+
+          <!-- Hàng nhãn công dụng giúp người xem nhận biết ngay lập tức -->
+          <div class="hero-purpose-tags animate__animated animate__fadeInUp animate__delay-1s">
+            <span class="purpose-tag">🎯 Bốc thăm học sinh</span>
+            <span class="purpose-tag">👥 Chia nhóm ngẫu nhiên</span>
+            <span class="purpose-tag">🎮 5 Minigame tương tác</span>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="#games" class="btn btn-primary animate__animated animate__pulse animate__infinite">Chơi ngay 🚀</a>
+            <a href="#how-to" class="btn btn-outline">Xem cách dùng 📖</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <!-- Tấm vé VIP Arcade Pass thu hút mọi ánh nhìn khi mở trang -->
+          <div class="arcade-vip-ticket">
+            <div class="ticket-cutout cutout-left"></div>
+            <div class="ticket-cutout cutout-right"></div>
+            <div class="ticket-header">
+              <span class="ticket-type">🎟️ VIP ARCADE PASS</span>
+              <span class="ticket-id">#125000005</span>
+            </div>
+            <div class="ticket-body">
+              <div class="ticket-logo">🎪 LUCKY ARCADE</div>
+              <p class="ticket-desc">Khu bốc thăm chọn số ngẫu nhiên</p>
+              <ul class="ticket-features">
+                <li>🦆 Đua vịt 8 làn kịch tính</li>
+                <li>🎣 Hồ câu cá giật số may mắn</li>
+                <li>🎡 Vòng quay 12 ô màu rực rỡ</li>
+                <li>🎁 6 Hộp quà mở nắp bí ẩn</li>
+                <li>🎲 Đổ xúc xắc 3D chân thực</li>
+              </ul>
+              <div class="ticket-footer">
+                <div class="ticket-barcode">||| | |||| | ||| |||| | || |||</div>
+                <div class="ticket-stamp">FREE PLAY</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-badge badge-duck">🦆</div>
+          <div class="floating-badge badge-dice">🎲</div>
+          <div class="floating-badge badge-rod">🎣</div>
+          <div class="floating-badge badge-gift">🎁</div>
+          <div class="floating-badge badge-wheel">🎡</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. GIỚI THIỆU (#about)
+         ========================================== -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-down">
+          <span class="section-badge">Khám phá</span>
+          <h2>Về Lucky Arcade</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text" data-aos="fade-right">
+            <p class="lead-text">
+              <strong>LUCKY ARCADE</strong> là không gian vui chơi bốc thăm số ngẫu nhiên phong cách hội chợ giải trí sống động. Website được sinh ra để biến những giờ kiểm tra bài cũ căng thẳng, những buổi bốc thăm chia nhóm hay sự kiện lớp học trở nên ngập tràn tiếng cười và sự hồi hộp lành mạnh.
+            </p>
+            <p>
+              Tất cả các thuật toán chọn số đều chạy hoàn toàn ngẫu nhiên và minh bạch trên trình duyệt của bạn. Trò chơi là công cụ bốc thăm giải trí lành mạnh, hỗ trợ giáo dục, chia nhóm công bằng, gắn kết tình bạn và chia sẻ niềm vui bất tận.
+            </p>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card" data-aos="zoom-in" data-aos-delay="0">
+              <span class="stat-icon" aria-hidden="true">🎮</span>
+              <strong class="stat-number">5</strong>
+              <p class="stat-label">Chế độ chơi độc đáo</p>
+            </article>
+
+            <article class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+              <span class="stat-icon" aria-hidden="true">🔢</span>
+              <strong class="stat-number">∞</strong>
+              <p class="stat-label">Số tối đa (Vô hạn)</p>
+            </article>
+
+            <article class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+              <span class="stat-icon" aria-hidden="true">✨</span>
+              <strong class="stat-number">100%</strong>
+              <p class="stat-label">Ngẫu nhiên & Công bằng</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. THIẾT LẬP KHOẢNG SỐ (#setup)
+         ========================================== -->
+    <section id="setup" class="setup-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-down">
+          <span class="section-badge">Cấu hình</span>
+          <h2>Thiết Lập Khoảng Số</h2>
+        </div>
+
+        <form id="setup-form" class="setup-card" data-aos="fade-up" novalidate>
+          <fieldset class="setup-fieldset">
+            <legend class="setup-legend">Khoảng số ngẫu nhiên dùng chung cho các trò chơi</legend>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="min-number" class="form-label">
+                  <span class="label-icon" aria-hidden="true">🔽</span> Số nhỏ nhất (Min)
+                </label>
+                <input
+                  type="number"
+                  id="min-number"
+                  name="minNumber"
+                  class="form-control"
+                  min="1"
+                  value="1"
+                  required
+                >
+                <small class="form-hint">Số nguyên dương từ 1 trở lên</small>
+              </div>
+
+              <div class="form-group">
+                <label for="max-number" class="form-label">
+                  <span class="label-icon" aria-hidden="true">🔼</span> Số lớn nhất (Max)
+                </label>
+                <input
+                  type="number"
+                  id="max-number"
+                  name="maxNumber"
+                  class="form-control"
+                  min="1"
+                  value="50"
+                  required
+                >
+                <small class="form-hint">Phải lớn hơn số nhỏ nhất (không giới hạn tối đa)</small>
+              </div>
+            </div>
+
+            <div class="form-group-checkbox">
+              <label for="unique-numbers" class="checkbox-label">
+                <input type="checkbox" id="unique-numbers" name="uniqueNumbers" class="form-checkbox">
+                <span class="custom-checkbox-indicator" aria-hidden="true"></span>
+                <span class="checkbox-text">Không lặp lại số đã ra (loại trừ các số đã trúng trong phiên hiện tại)</span>
+              </label>
+            </div>
+
+            <div class="setup-actions">
+              <button type="button" id="btn-save-setup" class="btn btn-primary">
+                💾 Lưu thiết lập
+              </button>
+              <button type="button" id="btn-random-game" class="btn btn-accent">
+                🎲 Chọn trò chơi ngẫu nhiên
+              </button>
+            </div>
+
+            <p id="setup-error" class="setup-error-msg" role="alert" aria-live="polite">
+              <!-- Thông báo lỗi khi min >= max hoặc để trống sẽ hiển thị ở đây -->
+            </p>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. TRÒ CHƠI (#games) - 5 ARTICLE CHẾ ĐỘ
+         ========================================== -->
+    <section id="games" class="games-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-down">
+          <span class="section-badge">Đấu trường may mắn</span>
+          <h2>5 Chế Độ Chơi Hấp Dẫn</h2>
+        </div>
+
+        <div class="games-grid">
+
+          <!-- Chế độ 1: Đua vịt -->
+          <article class="game-card" id="game-duck" data-aos="flip-up" data-aos-delay="0">
+            <!-- Checkbox trigger điều khiển hoạt ảnh chạy đua bằng CSS thuần -->
+            <input type="checkbox" id="duck-toggle" class="game-toggle-input" hidden>
+
+            <header class="game-card-header">
+              <span class="game-badge">Tốc độ & Kịch tính</span>
+              <h3>🦆 Đua Vịt Tốc Độ</h3>
+            </header>
+
+            <figure class="playground playground-duck">
+              <div class="duck-track-container" id="duck-track">
+                <div class="duck-finish-line" title="Vạch đích">🏁 ĐÍCH</div>
+                <!-- 8 làn đua vịt -->
+                <div class="duck-lane" data-lane="1">
+                  <span class="lane-number">#1</span>
+                  <div class="duck-runner duck-runner-1">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">12</span>
+                  </div>
+                </div>
+                <div class="duck-lane" data-lane="2">
+                  <span class="lane-number">#2</span>
+                  <div class="duck-runner duck-runner-2 winner-duck">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">27</span>
+                  </div>
+                </div>
+                <div class="duck-lane" data-lane="3">
+                  <span class="lane-number">#3</span>
+                  <div class="duck-runner duck-runner-3">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">35</span>
+                  </div>
+                </div>
+                <div class="duck-lane" data-lane="4">
+                  <span class="lane-number">#4</span>
+                  <div class="duck-runner duck-runner-4">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">08</span>
+                  </div>
+                </div>
+                <div class="duck-lane" data-lane="5">
+                  <span class="lane-number">#5</span>
+                  <div class="duck-runner duck-runner-5">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">44</span>
+                  </div>
+                </div>
+                <div class="duck-lane" data-lane="6">
+                  <span class="lane-number">#6</span>
+                  <div class="duck-runner duck-runner-6">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">19</span>
+                  </div>
+                </div>
+                <div class="duck-lane" data-lane="7">
+                  <span class="lane-number">#7</span>
+                  <div class="duck-runner duck-runner-7">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">03</span>
+                  </div>
+                </div>
+                <div class="duck-lane" data-lane="8">
+                  <span class="lane-number">#8</span>
+                  <div class="duck-runner duck-runner-8">
+                    <span class="duck-emoji">🦆</span>
+                    <span class="duck-badge">50</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption>Tối đa 8 chú vịt đại diện cho các con số trong khoảng đã chọn cùng tranh tài bơi về đích. Vịt cán đích đầu tiên sẽ mang lại con số trúng!</figcaption>
+            </figure>
+
+            <div class="game-controls">
+              <label for="duck-toggle" class="btn btn-primary btn-game btn-toggle-label" id="btn-duck" role="button" tabindex="0">
+                <span class="label-idle">🏁 Xuất phát đua vịt</span>
+                <span class="label-active">🔄 Đua lại</span>
+              </label>
+              <div class="result-box">
+                <span class="result-label">Số về đích:</span>
+                <output id="duck-result" class="game-result-output" aria-live="polite">
+                  <span class="res-idle">Chờ xuất phát...</span>
+                  <span class="res-win">🦆 Vịt #02 (Số 27) VỀ NHẤT! 🏆</span>
+                </output>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chế độ 2: Câu cá -->
+          <article class="game-card" id="game-fishing" data-aos="flip-up" data-aos-delay="100">
+            <!-- Checkbox trigger điều khiển giật cần và cắn câu bằng CSS thuần -->
+            <input type="checkbox" id="fishing-toggle" class="game-toggle-input" hidden>
+
+            <header class="game-card-header">
+              <span class="game-badge">Bí ẩn & Hồi hộp</span>
+              <h3>🎣 Hồ Câu May Mắn</h3>
+            </header>
+
+            <figure class="playground playground-fishing">
+              <div class="fishing-pond">
+                <!-- Cần câu & dây câu -->
+                <div class="fishing-rod-line">
+                  <div class="fishing-rod-pole"></div>
+                  <div class="fishing-line" id="fishing-line">
+                    <div class="fishing-bobber" id="fishing-bobber"></div>
+                    <div class="fishing-hook">🪝</div>
+                  </div>
+                </div>
+
+                <!-- Lớp sóng nước chuyển động -->
+                <div class="water-waves" aria-hidden="true">
+                  <div class="wave wave-1"></div>
+                  <div class="wave wave-2"></div>
+                </div>
+
+                <!-- Cá bơi lội dưới nước -->
+                <div class="fish-school" aria-hidden="true">
+                  <div class="fish-item fish-item-1">🐟 <span class="fish-number">07</span></div>
+                  <div class="fish-item fish-item-2">🐠 <span class="fish-number">23</span></div>
+                  <div class="fish-item fish-item-3">🐡 <span class="fish-number">41</span></div>
+                </div>
+
+                <!-- Chú cá cắn câu khi có kết quả -->
+                <div class="caught-fish" id="caught-fish">
+                  <span class="caught-emoji">🐟</span>
+                  <span class="caught-badge" id="caught-badge">23</span>
+                </div>
+              </div>
+              <figcaption>Thả mồi câu xuống làn nước sâu. Phao câu nhấp nhô theo từng đợt sóng và chú cá may mắn nhất sẽ cắn câu đem lại con số cho bạn!</figcaption>
+            </figure>
+
+            <div class="game-controls">
+              <label for="fishing-toggle" class="btn btn-primary btn-game btn-toggle-label" id="btn-fishing" role="button" tabindex="0">
+                <span class="label-idle">🎣 Thả câu ngay</span>
+                <span class="label-active">🔄 Thu cần & Câu lại</span>
+              </label>
+              <div class="result-box">
+                <span class="result-label">Cá cắn câu số:</span>
+                <output id="fishing-result" class="game-result-output" aria-live="polite">
+                  <span class="res-idle">Hồ nước đang chờ câu...</span>
+                  <span class="res-win">🐟 Cá cắn câu: Số 23! 🎉</span>
+                </output>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chế độ 3: Vòng quay -->
+          <article class="game-card" id="game-wheel" data-aos="flip-up" data-aos-delay="200">
+            <!-- Checkbox trigger quay đĩa bằng CSS thuần -->
+            <input type="checkbox" id="wheel-toggle" class="game-toggle-input" hidden>
+
+            <header class="game-card-header">
+              <span class="game-badge">Kinh điển & Hào hứng</span>
+              <h3>🎡 Vòng Quay Kì Diệu</h3>
+            </header>
+
+            <figure class="playground playground-wheel">
+              <div class="wheel-stage">
+                <!-- Kim chỉ cố định ở trên -->
+                <div class="wheel-pointer" title="Kim chỉ kết quả" aria-hidden="true">▼</div>
+
+                <!-- Đĩa quay với conic-gradient -->
+                <div class="wheel-disc" id="wheel-disc">
+                  <div class="wheel-center-hub" aria-hidden="true">🎪</div>
+                  <!-- Các nhãn số trên 12 ô -->
+                  <div class="wheel-label-container" aria-hidden="true">
+                    <span class="wheel-segment-label" style="--segment-deg: 15deg;">1</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 45deg;">2</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 75deg;">3</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 105deg;">4</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 135deg;">5</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 165deg;">6</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 195deg;">7</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 225deg;">8</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 255deg;">9</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 285deg;">10</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 315deg;">11</span>
+                    <span class="wheel-segment-label" style="--segment-deg: 345deg;">12</span>
+                  </div>
+                </div>
+              </div>
+              <figcaption>Vòng quay chia tối đa 12 ô màu rực rỡ. Bánh xe quay tít và kim chỉ sẽ dừng chính xác vào ô chứa con số may mắn của bạn!</figcaption>
+            </figure>
+
+            <div class="game-controls">
+              <label for="wheel-toggle" class="btn btn-primary btn-game btn-toggle-label" id="btn-wheel" role="button" tabindex="0">
+                <span class="label-idle">🎡 Quay số ngay</span>
+                <span class="label-active">🔄 Quay lượt mới</span>
+              </label>
+              <div class="result-box">
+                <span class="result-label">Ô kim chỉ:</span>
+                <output id="wheel-result" class="game-result-output" aria-live="polite">
+                  <span class="res-idle">Sẵn sàng quay...</span>
+                  <span class="res-win">🎯 Kim chỉ ô số 08! 🌟</span>
+                </output>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chế độ 4: Hộp quà bí ẩn -->
+          <article class="game-card" id="game-gift" data-aos="flip-up" data-aos-delay="0">
+            <!-- 6 Radio inputs để chọn từng hộp quà bằng CSS thuần -->
+            <input type="radio" name="gift-box-radio" id="gift-radio-1" class="gift-radio-input" hidden>
+            <input type="radio" name="gift-box-radio" id="gift-radio-2" class="gift-radio-input" hidden>
+            <input type="radio" name="gift-box-radio" id="gift-radio-3" class="gift-radio-input" hidden>
+            <input type="radio" name="gift-box-radio" id="gift-radio-4" class="gift-radio-input" hidden>
+            <input type="radio" name="gift-box-radio" id="gift-radio-5" class="gift-radio-input" hidden>
+            <input type="radio" name="gift-box-radio" id="gift-radio-6" class="gift-radio-input" hidden>
+            <input type="radio" name="gift-box-radio" id="gift-radio-reset" class="gift-radio-input" checked hidden>
+
+            <header class="game-card-header">
+              <span class="game-badge">Bất ngờ & Thú vị</span>
+              <h3>🎁 Hộp Quà Bí Ẩn</h3>
+            </header>
+
+            <figure class="playground playground-gift">
+              <div class="gift-boxes-grid" id="gift-boxes-container">
+                <!-- 6 Hộp quà tương tác bằng Label của Radio -->
+                <label for="gift-radio-1" class="gift-box gift-box-1" aria-label="Mở hộp quà số 1">
+                  <div class="gift-lid"></div>
+                  <div class="gift-ribbon"></div>
+                  <div class="gift-body">
+                    <span class="gift-icon">🎁</span>
+                    <span class="gift-content">15</span>
+                  </div>
+                </label>
+
+                <label for="gift-radio-2" class="gift-box gift-box-2" aria-label="Mở hộp quà số 2">
+                  <div class="gift-lid"></div>
+                  <div class="gift-ribbon"></div>
+                  <div class="gift-body">
+                    <span class="gift-icon">🎁</span>
+                    <span class="gift-content">42</span>
+                  </div>
+                </label>
+
+                <label for="gift-radio-3" class="gift-box gift-box-3" aria-label="Mở hộp quà số 3">
+                  <div class="gift-lid"></div>
+                  <div class="gift-ribbon"></div>
+                  <div class="gift-body">
+                    <span class="gift-icon">🎁</span>
+                    <span class="gift-content">07</span>
+                  </div>
+                </label>
+
+                <label for="gift-radio-4" class="gift-box gift-box-4" aria-label="Mở hộp quà số 4">
+                  <div class="gift-lid"></div>
+                  <div class="gift-ribbon"></div>
+                  <div class="gift-body">
+                    <span class="gift-icon">🎁</span>
+                    <span class="gift-content">88</span>
+                  </div>
+                </label>
+
+                <label for="gift-radio-5" class="gift-box gift-box-5" aria-label="Mở hộp quà số 5">
+                  <div class="gift-lid"></div>
+                  <div class="gift-ribbon"></div>
+                  <div class="gift-body">
+                    <span class="gift-icon">🎁</span>
+                    <span class="gift-content">33</span>
+                  </div>
+                </label>
+
+                <label for="gift-radio-6" class="gift-box gift-box-6" aria-label="Mở hộp quà số 6">
+                  <div class="gift-lid"></div>
+                  <div class="gift-ribbon"></div>
+                  <div class="gift-body">
+                    <span class="gift-icon">🎁</span>
+                    <span class="gift-content">69</span>
+                  </div>
+                </label>
+              </div>
+              <figcaption>Có 6 hộp quà rực rỡ ẩn chứa những số bí mật. Bạn hãy nhấp vào một hộp yêu thích để mở bung nắp và khám phá con số trúng!</figcaption>
+            </figure>
+
+            <div class="game-controls">
+              <label for="gift-radio-reset" class="btn btn-outline btn-game" id="btn-gift-reset" role="button" tabindex="0">
+                🔄 Đóng lại các hộp
+              </label>
+              <div class="result-box">
+                <span class="result-label">Hộp quà hé lộ:</span>
+                <output id="gift-result" class="game-result-output" aria-live="polite">
+                  <span class="res-gift-default">Hãy bấm chọn 1 hộp quà!</span>
+                  <span class="res-gift-1">🎁 Hộp #01: Số 15! ✨</span>
+                  <span class="res-gift-2">🎁 Hộp #02: Số 42! ✨</span>
+                  <span class="res-gift-3">🎁 Hộp #03: Số 07! ✨</span>
+                  <span class="res-gift-4">🎁 Hộp #04: Số 88! ✨</span>
+                  <span class="res-gift-5">🎁 Hộp #05: Số 33! ✨</span>
+                  <span class="res-gift-6">🎁 Hộp #06: Số 69! ✨</span>
+                </output>
+              </div>
+            </div>
+          </article>
+
+          <!-- Chế độ 5: Xúc xắc 3D -->
+          <article class="game-card" id="game-dice" data-aos="flip-up" data-aos-delay="100">
+            <!-- Checkbox trigger lắc xúc xắc 3D bằng CSS thuần -->
+            <input type="checkbox" id="dice-toggle" class="game-toggle-input" hidden>
+
+            <header class="game-card-header">
+              <span class="game-badge">Chân thực & Lôi cuốn</span>
+              <h3>🎲 Đổ Xúc Xắc 3D</h3>
+            </header>
+
+            <figure class="playground playground-dice">
+              <div class="dice-arena">
+                <!-- Viên xúc xắc 1 -->
+                <div class="dice-wrapper">
+                  <div class="dice-cube dice-cube-1" id="dice-cube-1">
+                    <div class="dice-face face-front" data-pip="1"><span class="pip pip-center"></span></div>
+                    <div class="dice-face face-back" data-pip="6">
+                      <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                      <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-right" data-pip="3">
+                      <span class="pip"></span><span class="pip pip-center"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-left" data-pip="4">
+                      <span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-top" data-pip="5">
+                      <span class="pip"></span><span class="pip"></span><span class="pip pip-center"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-bottom" data-pip="2">
+                      <span class="pip"></span><span class="pip"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Viên xúc xắc 2 -->
+                <div class="dice-wrapper">
+                  <div class="dice-cube dice-cube-2" id="dice-cube-2">
+                    <div class="dice-face face-front" data-pip="1"><span class="pip pip-center"></span></div>
+                    <div class="dice-face face-back" data-pip="6">
+                      <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                      <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-right" data-pip="3">
+                      <span class="pip"></span><span class="pip pip-center"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-left" data-pip="4">
+                      <span class="pip"></span><span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-top" data-pip="5">
+                      <span class="pip"></span><span class="pip"></span><span class="pip pip-center"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+                    <div class="dice-face face-bottom" data-pip="2">
+                      <span class="pip"></span><span class="pip"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <figcaption>Lắc 2 viên xúc xắc lục giác 3D. Tổng điểm 2 mặt trên cùng (từ 2 đến 12) là số trúng. (Chế độ này dùng khoảng cố định 2-12)</figcaption>
+            </figure>
+
+            <div class="game-controls">
+              <label for="dice-toggle" class="btn btn-primary btn-game btn-toggle-label" id="btn-dice" role="button" tabindex="0">
+                <span class="label-idle">🎲 Lắc xúc xắc</span>
+                <span class="label-active">🔄 Lắc lại</span>
+              </label>
+              <div class="result-box">
+                <span class="result-label">Tổng 2 mặt:</span>
+                <output id="dice-result" class="game-result-output" aria-live="polite">
+                  <span class="res-idle">Chờ lắc...</span>
+                  <span class="res-win">🎲 Mặt 5 + 6 = 11 Điểm! 💥</span>
+                </output>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         6. LỊCH SỬ KẾT QUẢ (#history)
+         ========================================== -->
+    <section id="history" class="history-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-down">
+          <span class="section-badge">Minh bạch</span>
+          <h2>Lịch Sử Kết Quả Gần Nhất</h2>
+        </div>
+
+        <div class="history-wrapper" data-aos="fade-up">
+          <div class="history-header-bar">
+            <span class="history-count-text">Tối đa 10 lượt quay số gần nhất</span>
+            <button type="button" id="clear-history-btn" class="btn btn-sm btn-outline">
+              🗑️ Xóa lịch sử
+            </button>
+          </div>
+
+          <ol id="history-list" class="history-list">
+            <li class="history-item">
+              <span class="history-index">#01</span>
+              <span class="history-game-name">🦆 Đua vịt</span>
+              <span class="history-number">27</span>
+              <time datetime="2026-10-20T10:30:15" class="history-time">10:30:15</time>
+            </li>
+            <li class="history-item">
+              <span class="history-index">#02</span>
+              <span class="history-game-name">🎡 Vòng quay</span>
+              <span class="history-number">08</span>
+              <time datetime="2026-10-20T10:28:40" class="history-time">10:28:40</time>
+            </li>
+            <li class="history-item">
+              <span class="history-index">#03</span>
+              <span class="history-game-name">🎲 Xúc xắc</span>
+              <span class="history-number">11</span>
+              <time datetime="2026-10-20T10:25:02" class="history-time">10:25:02</time>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         7. HƯỚNG DẪN CÁCH DÙNG (#how-to)
+         ========================================== -->
+    <section id="how-to" class="howto-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-down">
+          <span class="section-badge">Dễ dàng</span>
+          <h2>Cách Dùng Lucky Arcade</h2>
+        </div>
+
+        <ol class="steps-grid">
+          <li class="step-card" data-aos="fade-up" data-aos-delay="0">
+            <div class="step-number" aria-hidden="true">1</div>
+            <div class="step-icon" aria-hidden="true">⚙️</div>
+            <h3>Cài đặt khoảng số</h3>
+            <p>Nhập số nhỏ nhất (Min) và số lớn nhất (Max) theo danh sách học sinh hoặc người tham gia của bạn.</p>
+          </li>
+
+          <li class="step-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="step-number" aria-hidden="true">2</div>
+            <div class="step-icon" aria-hidden="true">🎯</div>
+            <h3>Chọn trò chơi yêu thích</h3>
+            <p>Lựa chọn 1 trong 5 chế độ: Đua vịt, Câu cá, Vòng quay, Hộp quà hoặc Xúc xắc 3D đầy kịch tính.</p>
+          </li>
+
+          <li class="step-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="step-number" aria-hidden="true">3</div>
+            <div class="step-icon" aria-hidden="true">🎬</div>
+            <h3>Thưởng thức hoạt ảnh</h3>
+            <p>Bấm nút bắt đầu để theo dõi các hiệu ứng chuyển động chân thực dẫn lối đến con số may mắn duy nhất.</p>
+          </li>
+
+          <li class="step-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="step-number" aria-hidden="true">4</div>
+            <div class="step-icon" aria-hidden="true">🏆</div>
+            <h3>Nhận kết quả & xem lại</h3>
+            <p>Con số trúng bừng sáng cùng hiệu ứng chúc mừng và được tự động ghi nhận vào bảng lịch sử.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         8. CÂU HỎI THƯỜNG GẶP (#faq)
+         ========================================== -->
+    <section id="faq" class="faq-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-down">
+          <span class="section-badge">Giải đáp thắc mắc</span>
+          <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
+        </div>
+
+        <div class="faq-list">
+          <article class="faq-item" data-aos="fade-up" data-aos-delay="0">
+            <details>
+              <summary>Kết quả chọn số có thật sự ngẫu nhiên và công bằng không?</summary>
+              <div class="faq-answer">
+                <p>
+                  Hoàn toàn công bằng! Lucky Arcade sử dụng thuật toán sinh số ngẫu nhiên an toàn (kết hợp <code>crypto.getRandomValues</code> và <code>Math.random</code>) trực tiếp trên máy khách. Không có bất kỳ can thiệp hay cài cắm kết quả trước nào.
+                </p>
+              </div>
+            </details>
+          </article>
+
+          <article class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <details>
+              <summary>Có giới hạn khoảng số nhỏ nhất và lớn nhất khi bốc thăm không?</summary>
+              <div class="faq-answer">
+                <p>
+                  Bạn có thể tùy ý chọn bất kỳ khoảng số nào từ 1 đến vô hạn với điều kiện Số nhỏ nhất phải nhỏ hơn Số lớn nhất. Riêng chế độ Đổ xúc xắc 3D sẽ sử dụng khoảng cố định từ 2 đến 12 ứng với tổng 2 viên xúc xắc chuẩn.
+                </p>
+              </div>
+            </details>
+          </article>
+
+          <article class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <details>
+              <summary>Tùy chọn "Không lặp lại số đã ra" hoạt động như thế nào?</summary>
+              <div class="faq-answer">
+                <p>
+                  Khi bật tính năng này, mỗi khi một con số được chọn, nó sẽ được đưa vào danh sách loại trừ trong phiên chơi. Các lượt sau sẽ không bao giờ xuất hiện lại số đó nữa. Khi toàn bộ các số trong khoảng đã ra hết, hệ thống sẽ thông báo hoàn thành vòng quay.
+                </p>
+              </div>
+            </details>
+          </article>
+
+          <article class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <details>
+              <summary>Tôi có thể dùng website này cho những mục đích nào?</summary>
+              <div class="faq-answer">
+                <p>
+                  Website hoàn toàn thích hợp cho giáo viên gọi học sinh lên bảng, người dẫn chương trình (MC) bốc thăm trúng thưởng sự kiện, quản trò chia nhóm teambuilding, hoặc nhóm bạn chọn người thanh toán hóa đơn một cách công bằng và vui vẻ.
+                </p>
+              </div>
+            </details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       9. FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="brand-logo footer-logo">
+          <span class="brand-icon" aria-hidden="true">🎪</span>
+          <span class="brand-text">LUCKY ARCADE</span>
+        </a>
+        <p class="footer-tagline">
+          Khu trò chơi chọn số ngẫu nhiên hội chợ vui nhộn, công bằng và tràn ngập tiếng cười.
+        </p>
+      </div>
+
+      <div class="footer-info">
+        <h3 class="footer-heading">Thông tin sinh viên</h3>
+        <address class="footer-address">
+          <p><strong>Họ và tên:</strong> Lê Công Tuấn Anh</p>
+          <p><strong>Mã số sinh viên:</strong> 125000005</p>
+          <p><strong>Môn học:</strong> Thiết kế Web</p>
+          <p><strong>Email:</strong> <a href="mailto:125000005@lachong.edu.vn">125000005@lachong.edu.vn</a></p>
+        </address>
+      </div>
+
+      <div class="footer-social">
+        <h3 class="footer-heading">Kết nối</h3>
+        <ul class="social-list">
+          <li><a href="https://github.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub của dự án">🐙 GitHub</a></li>
+          <li><a href="https://facebook.com" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook chia sẻ">📘 Facebook</a></li>
+          <li><a href="#setup" class="social-link" aria-label="Cài đặt trò chơi">⚙️ Thiết lập</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright-text">
+          &copy; 2026 Lucky Arcade. Bài tập giữa kỳ môn Thiết kế Web.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS CDN -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Khởi tạo hiệu ứng cuộn trang AOS theo yêu cầu
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    }
+  </script>
+
+</body>
+</html>

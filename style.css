@@ -1,0 +1,2169 @@
+/* ==========================================================================
+   LUCKY ARCADE - STYLESHEET
+   Môn học: Thiết kế Web
+   Sinh viên: Lê Công Tuấn Anh - MSSV: 125000005
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS VARIABLES (:ROOT)
+   -------------------------------------------------------------------------- */
+:root {
+  --primary-color: #5b3df5;
+  --accent-color: #ffc83d;
+  --pink-color: #ff4f9a;
+  --teal-color: #1fd1b4;
+  --bg-color: #12123a;
+  --surface-color: #1d1d52;
+  --text-color: #f4f4ff;
+  --text-muted: #a9a9d6;
+  --font-heading: 'Baloo 2', sans-serif;
+  --font-body: 'Be Vietnam Pro', sans-serif;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --radius: 20px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --glow: 0 0 18px var(--accent-color);
+  --transition: 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE STYLES
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   3. TYPOGRAPHY & COMMON UTILITIES
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+/* Section Headings */
+.section-heading {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section-badge {
+  display: inline-block;
+  background: rgba(255, 200, 61, 0.15);
+  color: var(--accent-color);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.25rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 200, 61, 0.3);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--pink-color));
+  margin: var(--space-sm) auto 0;
+  border-radius: 2px;
+}
+
+/* Common Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition), border-color var(--transition);
+  text-align: center;
+  user-select: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--pink-color));
+  color: var(--text-color);
+  box-shadow: 0 4px 15px rgba(91, 61, 245, 0.4);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent-color), #ff9f1a);
+  color: var(--bg-color);
+  box-shadow: 0 4px 15px rgba(255, 200, 61, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--teal-color);
+  color: var(--teal-color);
+}
+
+.btn-sm {
+  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+}
+
+/* Button Interactions */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow);
+}
+
+.btn-outline:hover {
+  background-color: var(--teal-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 15px rgba(31, 209, 180, 0.5);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. HEADER & NAVIGATION
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(29, 29, 82, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(255, 200, 61, 0.2);
+  box-shadow: var(--shadow);
+  transition: background-color var(--transition);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 200, 61, 0.5);
+}
+
+.brand-icon {
+  font-size: 1.8rem;
+}
+
+.site-nav {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap; /* Hỗ trợ xuống dòng trên mobile theo yêu cầu */
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-color);
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link:focus-visible {
+  outline: 2px dashed var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   4.1. ARCADE MARQUEE RIBBON (DẢI ĐÈN NEON CHẠY CHỮ)
+   -------------------------------------------------------------------------- */
+.arcade-marquee-ribbon {
+  background: rgba(18, 18, 58, 0.95);
+  border-bottom: 2px solid rgba(255, 200, 61, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  user-select: none;
+  padding: 0.45rem 0;
+  position: relative;
+  z-index: 999;
+}
+
+.arcade-marquee-ribbon::before,
+.arcade-marquee-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.arcade-marquee-ribbon::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-color), transparent);
+}
+
+.arcade-marquee-ribbon::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-color), transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  padding: 0 var(--space-lg);
+  letter-spacing: 0.5px;
+}
+
+.marquee-content strong {
+  color: var(--accent-color);
+  margin-right: 4px;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO SECTION (#hero)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  background: radial-gradient(circle at 75% 25%, #2a2068 0%, var(--bg-color) 70%);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.hero-content {
+  flex: 1 1 55%;
+  max-width: 650px;
+}
+
+/* Huy hiệu Pill Badge */
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: rgba(31, 209, 180, 0.15);
+  border: 1px solid var(--teal-color);
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--teal-color);
+  letter-spacing: 0.8px;
+  margin-bottom: var(--space-md);
+  box-shadow: 0 0 12px rgba(31, 209, 180, 0.25);
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--teal-color);
+  border-radius: 50%;
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--accent-color);
+  text-shadow: 0 4px 20px rgba(255, 200, 61, 0.4);
+  margin-bottom: var(--space-md);
+}
+
+.hero-slogan {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+}
+
+/* Hàng nhãn công dụng nổi bật */
+.hero-purpose-tags {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+
+.purpose-tag {
+  background: rgba(255, 200, 61, 0.12);
+  border: 1px solid rgba(255, 200, 61, 0.3);
+  color: var(--accent-color);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.25rem 0.85rem;
+  border-radius: calc(var(--radius) / 2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.purpose-tag:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+  background: rgba(255, 200, 61, 0.2);
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Visual: Vé VIP Arcade Pass kết hợp emoji trôi nổi */
+.hero-visual {
+  flex: 1 1 40%;
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tấm vé vàng VIP Golden Arcade Ticket */
+.arcade-vip-ticket {
+  width: 275px;
+  background: linear-gradient(145deg, #1d1d52 0%, #15153f 100%);
+  border: 2px solid var(--accent-color);
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 200, 61, 0.35);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.arcade-vip-ticket:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8), 0 0 35px var(--accent-color);
+}
+
+/* Vệt sáng quét lấp lánh (Hologram shimmer) */
+.arcade-vip-ticket::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 55%
+  );
+  transform: rotate(35deg);
+  animation: ticketShimmer 6s infinite linear;
+  pointer-events: none;
+}
+
+@keyframes ticketShimmer {
+  0% { transform: translateY(-100%) rotate(35deg); }
+  100% { transform: translateY(100%) rotate(35deg); }
+}
+
+/* Răng cưa vé hội chợ */
+.ticket-cutout {
+  position: absolute;
+  top: 48px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.cutout-left {
+  left: -9px;
+  border-right: 2px solid var(--accent-color);
+}
+
+.cutout-right {
+  right: -9px;
+  border-left: 2px solid var(--accent-color);
+}
+
+.ticket-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 200, 61, 0.15);
+  border-bottom: 2px dashed rgba(255, 200, 61, 0.4);
+}
+
+.ticket-type {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  letter-spacing: 0.5px;
+}
+
+.ticket-id {
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--teal-color);
+}
+
+.ticket-body {
+  padding: 1rem;
+  text-align: center;
+}
+
+.ticket-logo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 200, 61, 0.4);
+  margin-bottom: 0.15rem;
+}
+
+.ticket-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.ticket-features {
+  list-style: none;
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: rgba(18, 18, 58, 0.6);
+  padding: 0.65rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.75rem;
+}
+
+.ticket-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ticket-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: 0.6rem;
+}
+
+.ticket-barcode {
+  font-family: monospace;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+.ticket-stamp {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--pink-color);
+  border: 2px solid var(--pink-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  transform: rotate(-10deg);
+  box-shadow: 0 0 8px rgba(255, 79, 154, 0.4);
+}
+
+.floating-badge {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background-color: var(--surface-color);
+  border: 2px solid var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: floatEmoji 4s infinite ease-in-out alternate;
+  z-index: 3;
+}
+
+.badge-duck  { top: 5%; left: 8%; animation-delay: 0s; }
+.badge-dice  { top: 8%; right: 8%; animation-delay: 0.7s; }
+.badge-rod   { bottom: 8%; left: 8%; animation-delay: 1.4s; }
+.badge-gift  { bottom: 10%; right: 6%; animation-delay: 2.1s; }
+.badge-wheel { top: 48%; left: -5%; animation-delay: 1.0s; }
+
+/* --------------------------------------------------------------------------
+   6. ABOUT SECTION (#about)
+   -------------------------------------------------------------------------- */
+.about-section {
+  background-color: var(--surface-color);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.about-text {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-text p {
+  font-size: 1.15rem;
+  color: var(--text-color);
+  margin-bottom: var(--space-md);
+}
+
+.about-text .lead-text {
+  font-size: 1.3rem;
+  color: var(--text-color);
+}
+
+.about-text strong {
+  color: var(--accent-color);
+}
+
+.about-text em {
+  color: var(--teal-color);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Stats Row: Flexbox / Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.stat-card {
+  background: rgba(18, 18, 58, 0.6);
+  border: 1px solid rgba(255, 200, 61, 0.2);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--accent-color);
+  line-height: 1.1;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   7. SETUP SECTION (#setup)
+   -------------------------------------------------------------------------- */
+.setup-section {
+  background-color: var(--bg-color);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.setup-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 2px solid rgba(91, 61, 245, 0.4);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+.setup-fieldset {
+  border: none;
+}
+
+.setup-legend {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--teal-color);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form-label {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-control {
+  background-color: var(--bg-color);
+  border: 2px solid rgba(169, 169, 214, 0.3);
+  color: var(--text-color);
+  border-radius: calc(var(--radius) / 2);
+  padding: 0.75rem var(--space-md);
+  font-size: 1.2rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 12px rgba(255, 200, 61, 0.4);
+  outline: none;
+}
+
+.form-hint {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Checkbox Style */
+.form-group-checkbox {
+  margin-bottom: var(--space-lg);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.05rem;
+}
+
+.form-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.custom-checkbox-indicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.form-checkbox:checked + .custom-checkbox-indicator {
+  background-color: var(--pink-color);
+  border-color: var(--pink-color);
+}
+
+.form-checkbox:checked + .custom-checkbox-indicator::after {
+  content: '✓';
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.form-checkbox:focus-visible + .custom-checkbox-indicator {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.setup-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.setup-error-msg {
+  color: var(--pink-color);
+  font-weight: 600;
+  text-align: center;
+  margin-top: var(--space-md);
+  min-height: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   8. GAMES SECTION (#games) - COMMON CARD STYLES
+   -------------------------------------------------------------------------- */
+.games-section {
+  background-color: var(--surface-color);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--space-xl);
+}
+
+.game-card {
+  background-color: var(--bg-color);
+  border-radius: var(--radius);
+  border: 2px solid rgba(91, 61, 245, 0.4);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.game-card-header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid rgba(255, 200, 61, 0.15);
+  background: rgba(29, 29, 82, 0.4);
+}
+
+.game-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--teal-color);
+  display: inline-block;
+  margin-bottom: 0.2rem;
+}
+
+.game-card-header h3 {
+  font-size: 1.45rem;
+  color: var(--accent-color);
+}
+
+/* Figure Playground Container */
+.playground {
+  padding: var(--space-md);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.playground figcaption {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: var(--space-md);
+  line-height: 1.4;
+  padding: 0 var(--space-sm);
+}
+
+.game-controls {
+  padding: var(--space-md) var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  border-top: 1px solid rgba(255, 200, 61, 0.15);
+}
+
+/* Nút bấm chuyển đổi trạng thái bằng CSS thuần (Label của Checkbox) */
+.btn-toggle-label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-toggle-label .label-active {
+  display: none;
+}
+
+.game-toggle-input:checked ~ .game-controls .btn-toggle-label .label-idle {
+  display: none;
+}
+
+.game-toggle-input:checked ~ .game-controls .btn-toggle-label .label-active {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.game-toggle-input:checked ~ .game-controls .btn-toggle-label {
+  background: linear-gradient(135deg, var(--teal-color), #00b4d8);
+  border-color: var(--teal-color);
+  color: var(--bg-color);
+}
+
+.result-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(29, 29, 82, 0.8);
+  border-radius: calc(var(--radius) / 2);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid rgba(31, 209, 180, 0.3);
+}
+
+.result-label {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.game-result-output {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 200, 61, 0.5);
+}
+
+/* Hiển thị kết quả chuyển đổi qua CSS */
+.game-result-output .res-win {
+  display: none;
+}
+
+.game-toggle-input:checked ~ .game-controls .game-result-output .res-idle {
+  display: none;
+}
+
+.game-toggle-input:checked ~ .game-controls .game-result-output .res-win {
+  display: inline-block;
+  color: var(--accent-color);
+  animation: pulseGlow 1.5s infinite alternate;
+}
+
+/* --------------------------------------------------------------------------
+   9. GAME 1: DUCK RACE (ĐUA VỊT - HOẠT ẢNH THUẦN CSS)
+   -------------------------------------------------------------------------- */
+.playground-duck {
+  width: 100%;
+}
+
+.duck-track-container {
+  width: 100%;
+  background: #194628;
+  border: 3px solid #38ef7d;
+  border-radius: calc(var(--radius) / 2);
+  padding: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.duck-finish-line {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  bottom: 0;
+  width: 20px;
+  background: repeating-linear-gradient(
+    0deg,
+    #ffffff,
+    #ffffff 10px,
+    #000000 10px,
+    #000000 20px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  writing-mode: vertical-rl;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  text-shadow: 1px 1px 0 #000;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+.duck-lane {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 28px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+  margin-bottom: 2px;
+}
+
+.duck-lane:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.lane-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 25px;
+  flex-shrink: 0;
+}
+
+.duck-runner {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  position: absolute;
+  left: 28px;
+  transform: translateX(0);
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+.duck-emoji {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.duck-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  padding: 1px 4px;
+  border-radius: 4px;
+  line-height: 1;
+  transition: all var(--transition);
+}
+
+/* Kích hoạt chạy đua vịt khi Checkbox được Checked */
+#duck-toggle:checked ~ .playground-duck .duck-runner {
+  transform: translateX(calc(100% + 140px));
+}
+
+#duck-toggle:checked ~ .playground-duck .duck-runner-1 { transition: transform 2.8s ease-in-out; }
+#duck-toggle:checked ~ .playground-duck .duck-runner-2 { transition: transform 2.1s ease-in-out; } /* Vịt số 2 về đích trước! */
+#duck-toggle:checked ~ .playground-duck .duck-runner-3 { transition: transform 3.1s ease-in-out; }
+#duck-toggle:checked ~ .playground-duck .duck-runner-4 { transition: transform 2.6s ease-in-out; }
+#duck-toggle:checked ~ .playground-duck .duck-runner-5 { transition: transform 2.9s ease-in-out; }
+#duck-toggle:checked ~ .playground-duck .duck-runner-6 { transition: transform 2.4s ease-in-out; }
+#duck-toggle:checked ~ .playground-duck .duck-runner-7 { transition: transform 3.2s ease-in-out; }
+#duck-toggle:checked ~ .playground-duck .duck-runner-8 { transition: transform 2.5s ease-in-out; }
+
+#duck-toggle:checked ~ .playground-duck .winner-duck .duck-badge {
+  background-color: var(--pink-color);
+  color: #fff;
+  box-shadow: 0 0 12px var(--pink-color);
+  transform: scale(1.15);
+}
+
+/* --------------------------------------------------------------------------
+   10. GAME 2: FISHING LAKE (CÂU CÁ - HOẠT ẢNH THUẦN CSS)
+   -------------------------------------------------------------------------- */
+.playground-fishing {
+  width: 100%;
+}
+
+.fishing-pond {
+  width: 100%;
+  height: 240px;
+  background: linear-gradient(180deg, #183059 0%, #0d1b2a 100%);
+  border-radius: calc(var(--radius) / 2);
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--teal-color);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.fishing-rod-line {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 5;
+}
+
+.fishing-rod-pole {
+  width: 110px;
+  height: 5px;
+  background: #a0522d;
+  border-radius: 3px;
+  transform: rotate(20deg);
+  transform-origin: left center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: transform 0.6s ease;
+}
+
+.fishing-line {
+  position: absolute;
+  top: 42px;
+  left: 100px;
+  width: 2px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.6);
+  transform-origin: top center;
+  transition: height 0.6s ease;
+}
+
+.fishing-bobber {
+  position: absolute;
+  bottom: 12px;
+  left: -6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%, #ff4f4f 0%, #b30000 70%);
+  border: 1px solid #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  animation: bobberBob 2s infinite ease-in-out;
+}
+
+.fishing-hook {
+  position: absolute;
+  bottom: -10px;
+  left: -7px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.water-waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  pointer-events: none;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat-x;
+  opacity: 0.35;
+}
+
+.wave-1 {
+  background: radial-gradient(circle at 50% 0, var(--teal-color) 40%, transparent 45%);
+  background-size: 60px 40px;
+  animation: waveMotion 4s linear infinite;
+}
+
+.wave-2 {
+  background: radial-gradient(circle at 50% 0, #00b4d8 40%, transparent 45%);
+  background-size: 90px 50px;
+  bottom: 5px;
+  animation: waveMotion 6s linear infinite reverse;
+}
+
+.fish-school {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+}
+
+.fish-item {
+  position: absolute;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.7;
+}
+
+.fish-item-1 { bottom: 20px; left: 15%; animation: floatEmoji 3s infinite alternate; }
+.fish-item-2 { bottom: 70px; right: 20%; animation: floatEmoji 3.5s infinite 0.5s alternate; }
+.fish-item-3 { bottom: 45px; left: 55%; animation: floatEmoji 2.8s infinite 1s alternate; }
+
+.fish-number {
+  font-size: 0.7rem;
+  font-weight: 800;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.caught-fish {
+  position: absolute;
+  top: 75px;
+  left: 85px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.caught-emoji {
+  font-size: 2.2rem;
+}
+
+.caught-badge {
+  font-size: 1rem;
+  font-weight: 800;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  padding: 2px 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Kích hoạt thả câu và cá cắn câu khi Checked */
+#fishing-toggle:checked ~ .playground-fishing .fishing-rod-pole {
+  animation: rodBend 2.4s ease forwards;
+}
+
+#fishing-toggle:checked ~ .playground-fishing .fishing-line {
+  animation: lineDropAndPull 2.4s ease forwards;
+}
+
+#fishing-toggle:checked ~ .playground-fishing .fishing-bobber {
+  animation: bobberSinkAndRise 2.4s ease forwards;
+}
+
+#fishing-toggle:checked ~ .playground-fishing .caught-fish {
+  display: flex;
+  animation: fishEmerge 2.6s ease forwards;
+}
+
+@keyframes rodBend {
+  0%   { transform: rotate(20deg); }
+  35%  { transform: rotate(38deg); }
+  65%  { transform: rotate(15deg); }
+  100% { transform: rotate(22deg); }
+}
+
+@keyframes lineDropAndPull {
+  0%   { height: 70px; }
+  35%  { height: 130px; }
+  65%  { height: 50px; }
+  100% { height: 55px; }
+}
+
+@keyframes bobberSinkAndRise {
+  0%   { transform: translateY(0); }
+  35%  { transform: translateY(55px); opacity: 0.6; }
+  65%  { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fishEmerge {
+  0%, 45% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.3);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(-8px) scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. GAME 3: LUCKY WHEEL (VÒNG QUAY - HOẠT ẢNH THUẦN CSS)
+   -------------------------------------------------------------------------- */
+.playground-wheel {
+  width: 100%;
+}
+
+.wheel-stage {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-pointer {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  z-index: 20;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.8));
+  transform-origin: 50% 0%;
+}
+
+.wheel-disc {
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  border: 6px solid #ffe66d;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 0, 0, 0.5);
+  background: conic-gradient(
+    #ff4f9a 0deg 30deg,
+    #ffc83d 30deg 60deg,
+    #1fd1b4 60deg 90deg,
+    #5b3df5 90deg 120deg,
+    #ff6b6b 120deg 150deg,
+    #4ecdc4 150deg 180deg,
+    #ffe66d 180deg 210deg,
+    #a06ee1 210deg 240deg,
+    #38ef7d 240deg 270deg,
+    #ff9ff3 270deg 300deg,
+    #54a0ff 300deg 330deg,
+    #feca57 330deg 360deg
+  );
+  position: relative;
+  transform: rotate(0deg);
+  transition: transform 0.8s ease-out;
+  will-change: transform;
+}
+
+.wheel-center-hub {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-color: var(--surface-color);
+  border: 3px solid var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.wheel-label-container {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.wheel-segment-label {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform-origin: 50% 105px;
+  transform: translateX(-50%) rotate(var(--segment-deg, 0deg));
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Kích hoạt quay số bánh xe khi Checked */
+#wheel-toggle:checked ~ .playground-wheel .wheel-disc {
+  transform: rotate(2355deg); /* 6 vòng quay (2160deg) + 195deg = kim chỉ đúng ô số 8 */
+  transition: transform 3.8s cubic-bezier(0.12, 0.8, 0.2, 1);
+}
+
+#wheel-toggle:checked ~ .playground-wheel .wheel-pointer {
+  animation: pointerWiggle 3.8s ease;
+}
+
+@keyframes pointerWiggle {
+  0%, 100% { transform: translateX(-50%) rotate(0deg); }
+  10%, 30%, 50%, 70% { transform: translateX(-50%) rotate(12deg); }
+  20%, 40%, 60%, 80% { transform: translateX(-50%) rotate(-12deg); }
+  90% { transform: translateX(-50%) rotate(4deg); }
+}
+
+/* --------------------------------------------------------------------------
+   12. GAME 4: MYSTERY GIFT BOX (HỘP QUÀ - TƯƠNG TÁC THUẦN CSS)
+   -------------------------------------------------------------------------- */
+.playground-gift {
+  width: 100%;
+}
+
+.gift-boxes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.gift-box {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform var(--transition), opacity var(--transition);
+  position: relative;
+  user-select: none;
+}
+
+.gift-box:hover {
+  animation: giftWiggle 0.4s ease-in-out infinite alternate;
+}
+
+.gift-body {
+  width: 70px;
+  height: 65px;
+  background: linear-gradient(135deg, var(--pink-color), #d63384);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: all var(--transition);
+}
+
+.gift-lid {
+  width: 76px;
+  height: 14px;
+  background: linear-gradient(135deg, #ff70a6, #e60067);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  position: absolute;
+  top: -8px;
+  z-index: 2;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform-origin: top left;
+}
+
+.gift-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.gift-content {
+  display: none;
+}
+
+/* Ẩn các span kết quả từng hộp theo mặc định */
+.res-gift-1, .res-gift-2, .res-gift-3, .res-gift-4, .res-gift-5, .res-gift-6 {
+  display: none;
+}
+
+/* Khi một hộp được chọn (Radio Checked thuần CSS) */
+#gift-radio-1:checked ~ .playground-gift .gift-box-1,
+#gift-radio-2:checked ~ .playground-gift .gift-box-2,
+#gift-radio-3:checked ~ .playground-gift .gift-box-3,
+#gift-radio-4:checked ~ .playground-gift .gift-box-4,
+#gift-radio-5:checked ~ .playground-gift .gift-box-5,
+#gift-radio-6:checked ~ .playground-gift .gift-box-6 {
+  transform: translateY(-8px) scale(1.08);
+}
+
+#gift-radio-1:checked ~ .playground-gift .gift-box-1 .gift-lid,
+#gift-radio-2:checked ~ .playground-gift .gift-box-2 .gift-lid,
+#gift-radio-3:checked ~ .playground-gift .gift-box-3 .gift-lid,
+#gift-radio-4:checked ~ .playground-gift .gift-box-4 .gift-lid,
+#gift-radio-5:checked ~ .playground-gift .gift-box-5 .gift-lid,
+#gift-radio-6:checked ~ .playground-gift .gift-box-6 .gift-lid {
+  transform: translateY(-22px) rotate(-18deg);
+  opacity: 0.85;
+}
+
+#gift-radio-1:checked ~ .playground-gift .gift-box-1 .gift-body,
+#gift-radio-2:checked ~ .playground-gift .gift-box-2 .gift-body,
+#gift-radio-3:checked ~ .playground-gift .gift-box-3 .gift-body,
+#gift-radio-4:checked ~ .playground-gift .gift-box-4 .gift-body,
+#gift-radio-5:checked ~ .playground-gift .gift-box-5 .gift-body,
+#gift-radio-6:checked ~ .playground-gift .gift-box-6 .gift-body {
+  background: linear-gradient(135deg, var(--teal-color), #00b4d8);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px var(--accent-color);
+}
+
+#gift-radio-1:checked ~ .playground-gift .gift-box-1 .gift-icon,
+#gift-radio-2:checked ~ .playground-gift .gift-box-2 .gift-icon,
+#gift-radio-3:checked ~ .playground-gift .gift-box-3 .gift-icon,
+#gift-radio-4:checked ~ .playground-gift .gift-box-4 .gift-icon,
+#gift-radio-5:checked ~ .playground-gift .gift-box-5 .gift-icon,
+#gift-radio-6:checked ~ .playground-gift .gift-box-6 .gift-icon {
+  display: none;
+}
+
+#gift-radio-1:checked ~ .playground-gift .gift-box-1 .gift-content,
+#gift-radio-2:checked ~ .playground-gift .gift-box-2 .gift-content,
+#gift-radio-3:checked ~ .playground-gift .gift-box-3 .gift-content,
+#gift-radio-4:checked ~ .playground-gift .gift-box-4 .gift-content,
+#gift-radio-5:checked ~ .playground-gift .gift-box-5 .gift-content,
+#gift-radio-6:checked ~ .playground-gift .gift-box-6 .gift-content {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--bg-color);
+  animation: pulseGlow 1s infinite alternate;
+}
+
+/* Các hộp còn lại mờ đi */
+#gift-radio-1:checked ~ .playground-gift .gift-box:not(.gift-box-1),
+#gift-radio-2:checked ~ .playground-gift .gift-box:not(.gift-box-2),
+#gift-radio-3:checked ~ .playground-gift .gift-box:not(.gift-box-3),
+#gift-radio-4:checked ~ .playground-gift .gift-box:not(.gift-box-4),
+#gift-radio-5:checked ~ .playground-gift .gift-box:not(.gift-box-5),
+#gift-radio-6:checked ~ .playground-gift .gift-box:not(.gift-box-6) {
+  opacity: 0.35;
+  transform: scale(0.92);
+}
+
+/* Hiển thị kết quả của hộp đã chọn */
+#gift-radio-1:checked ~ .game-controls .res-gift-default,
+#gift-radio-2:checked ~ .game-controls .res-gift-default,
+#gift-radio-3:checked ~ .game-controls .res-gift-default,
+#gift-radio-4:checked ~ .game-controls .res-gift-default,
+#gift-radio-5:checked ~ .game-controls .res-gift-default,
+#gift-radio-6:checked ~ .game-controls .res-gift-default {
+  display: none;
+}
+
+#gift-radio-1:checked ~ .game-controls .res-gift-1 { display: inline-block; color: var(--accent-color); }
+#gift-radio-2:checked ~ .game-controls .res-gift-2 { display: inline-block; color: var(--accent-color); }
+#gift-radio-3:checked ~ .game-controls .res-gift-3 { display: inline-block; color: var(--accent-color); }
+#gift-radio-4:checked ~ .game-controls .res-gift-4 { display: inline-block; color: var(--accent-color); }
+#gift-radio-5:checked ~ .game-controls .res-gift-5 { display: inline-block; color: var(--accent-color); }
+#gift-radio-6:checked ~ .game-controls .res-gift-6 { display: inline-block; color: var(--accent-color); }
+
+/* --------------------------------------------------------------------------
+   13. GAME 5: 3D DICE (XÚC XẮC 3D - HOẠT ẢNH THUẦN CSS)
+   -------------------------------------------------------------------------- */
+.playground-dice {
+  width: 100%;
+}
+
+.dice-arena {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  padding: var(--space-lg) 0;
+  perspective: 600px;
+}
+
+.dice-wrapper {
+  width: 70px;
+  height: 70px;
+}
+
+.dice-cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease-out;
+}
+
+.dice-cube-1 {
+  transform: rotateX(-20deg) rotateY(30deg);
+}
+
+.dice-cube-2 {
+  transform: rotateX(25deg) rotateY(-35deg);
+}
+
+.dice-face {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #f8f9fa;
+  border: 2px solid #ced4da;
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+/* 6 Mặt Cube trong không gian 3D (nửa cạnh = 35px) */
+.face-front  { transform: rotateY(0deg) translateZ(35px); }
+.face-back   { transform: rotateY(180deg) translateZ(35px); }
+.face-right  { transform: rotateY(90deg) translateZ(35px); }
+.face-left   { transform: rotateY(-90deg) translateZ(35px); }
+.face-top    { transform: rotateX(90deg) translateZ(35px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(35px); }
+
+/* Chấm điểm xúc xắc (Pips) */
+.pip {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #12123a;
+}
+
+.face-front .pip-center {
+  margin: auto;
+  background-color: #ff4f4f;
+  width: 16px;
+  height: 16px;
+}
+
+.face-back .pip {
+  width: 12px;
+  height: 12px;
+}
+
+/* Kích hoạt lắc xúc xắc 3D khi Checked */
+#dice-toggle:checked ~ .playground-dice .dice-cube-1 {
+  transform: rotateX(630deg) rotateY(1080deg) rotateZ(0deg); /* Dừng ở mặt 5 */
+  transition: transform 2.2s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+#dice-toggle:checked ~ .playground-dice .dice-cube-2 {
+  transform: rotateX(-720deg) rotateY(900deg) rotateZ(0deg); /* Dừng ở mặt 6 */
+  transition: transform 2.4s cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+/* --------------------------------------------------------------------------
+   14. HISTORY SECTION (#history)
+   -------------------------------------------------------------------------- */
+.history-section {
+  background-color: var(--bg-color);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.history-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 200, 61, 0.2);
+  padding: var(--space-lg);
+}
+
+.history-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.history-count-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-color);
+  border-radius: calc(var(--radius) / 2);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 4px solid var(--accent-color);
+  transition: transform var(--transition);
+}
+
+.history-item:hover {
+  transform: translateX(4px);
+}
+
+.history-index {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.history-game-name {
+  font-weight: 600;
+  color: var(--text-color);
+  flex: 1;
+  margin-left: var(--space-md);
+}
+
+.history-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--accent-color);
+  margin-right: var(--space-md);
+}
+
+.history-time {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   15. HOW-TO SECTION (#how-to)
+   -------------------------------------------------------------------------- */
+.howto-section {
+  background-color: var(--surface-color);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+
+.step-card {
+  background-color: var(--bg-color);
+  border-radius: var(--radius);
+  border: 1px solid rgba(31, 209, 180, 0.25);
+  padding: var(--space-lg);
+  position: relative;
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--teal-color);
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: var(--space-md);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal-color), var(--primary-color));
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.step-icon {
+  font-size: 2.2rem;
+  margin-bottom: var(--space-sm);
+  margin-top: var(--space-xs, 0.25rem);
+}
+
+.step-card h3 {
+  font-size: 1.25rem;
+  color: var(--accent-color);
+  margin-bottom: var(--space-sm);
+}
+
+.step-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   16. FAQ SECTION (#faq)
+   -------------------------------------------------------------------------- */
+.faq-section {
+  background-color: var(--bg-color);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.faq-item {
+  background-color: var(--surface-color);
+  border-radius: calc(var(--radius) / 2);
+  border: 1px solid rgba(255, 200, 61, 0.15);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.faq-item details {
+  width: 100%;
+}
+
+.faq-item summary {
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-color);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color var(--transition), color var(--transition);
+  user-select: none;
+}
+
+/* Bỏ mũi tên mặc định của trình duyệt */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Tự viết CSS đổi icon +/- bằng ::after và details[open] theo yêu cầu */
+.faq-item summary::after {
+  content: '+';
+  font-family: monospace;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  transition: transform var(--transition);
+  margin-left: var(--space-md);
+}
+
+.faq-item details[open] summary::after {
+  content: '−';
+  color: var(--pink-color);
+}
+
+.faq-item summary:hover {
+  background-color: rgba(255, 200, 61, 0.08);
+  color: var(--accent-color);
+}
+
+.faq-answer {
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.faq-answer code {
+  background-color: var(--bg-color);
+  color: var(--teal-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* --------------------------------------------------------------------------
+   17. FOOTER & ADDRESS
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: var(--surface-color);
+  border-top: 2px solid rgba(255, 200, 61, 0.2);
+  padding-top: var(--space-xl);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-xl);
+}
+
+.footer-brand {
+  flex: 1 1 300px;
+}
+
+.footer-tagline {
+  color: var(--text-muted);
+  margin-top: var(--space-sm);
+  font-size: 0.95rem;
+  max-width: 320px;
+}
+
+.footer-heading {
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  margin-bottom: var(--space-md);
+}
+
+.footer-address {
+  font-style: normal;
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.footer-address strong {
+  color: var(--text-color);
+}
+
+.footer-address a:hover {
+  color: var(--accent-color);
+}
+
+.footer-social {
+  flex: 0 1 200px;
+}
+
+.social-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.social-link {
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: inline-block;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.social-link:hover {
+  color: var(--accent-color);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  background-color: var(--bg-color);
+  padding: var(--space-md) 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.copyright-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   18. KEYFRAME ANIMATIONS (TỰ VIẾT BẰNG CSS)
+   -------------------------------------------------------------------------- */
+@keyframes floatEmoji {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-15px) rotate(6deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px var(--accent-color));
+  }
+  50% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 30px var(--pink-color));
+  }
+}
+
+@keyframes bobberBob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes waveMotion {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes duckWiggle {
+  0% {
+    transform: translateX(calc(100% + 140px)) translateY(-2px);
+  }
+  100% {
+    transform: translateX(calc(100% + 140px)) translateY(2px);
+  }
+}
+
+@keyframes giftWiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   19. RESPONSIVE MEDIA QUERIES (3 MỨC: DESKTOP, TABLET, MOBILE)
+   -------------------------------------------------------------------------- */
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    width: 100%;
+    min-height: 420px;
+    height: auto;
+    margin-top: var(--space-md);
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile (<= 600px) */
+@media (max-width: 600px) {
+  :root {
+    --space-xl: 2.5rem;
+    --space-lg: 1.5rem;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .nav-list {
+    justify-content: center;
+    gap: var(--space-sm) var(--space-md);
+  }
+
+  .nav-link {
+    font-size: 0.95rem;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .wheel-stage {
+    width: 210px;
+    height: 210px;
+  }
+
+  .wheel-disc {
+    width: 190px;
+    height: 190px;
+  }
+
+  .wheel-segment-label {
+    transform-origin: 50% 85px;
+    font-size: 0.75rem;
+  }
+
+  .duck-finish-line {
+    right: 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   20. ACCESSIBILITY & PREFERS-REDUCED-MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
